@@ -1,5 +1,4 @@
 class EventsController < APIBaseController
-  before_action :load_user, except: %i[create]
   authorize_resource except: %i[create]
   before_action :auth_user, except: %i[create]
 
