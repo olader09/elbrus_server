@@ -20,9 +20,18 @@ class SuperusersController < APIBaseController
   def show_user
     user = User.find(params[:id])
     if user.errors.blank?
-      render json: user, except: [:password_digest], status: :ok
+      render json: user, status: :ok
     else
       render status: :bad_request
+    end
+  end
+
+  def index_users
+    users = User.all
+    if users.empty?
+      render status: 204
+    else
+      render json: users.to_json(except: %i[password_digest])
     end
   end
 

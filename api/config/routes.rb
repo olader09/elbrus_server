@@ -8,7 +8,10 @@ Rails.application.routes.draw do
   resource :user
 
   post :superuser_token, to: 'superuser_token#create'
-  resource :superuser
+  resource :superuser do
+    get :show_user, on: :member
+    get :index_users, on: :member
+  end
 
   resources :events
 
