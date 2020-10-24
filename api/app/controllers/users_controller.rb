@@ -21,6 +21,8 @@ class UsersController < APIBaseController
     if @user.errors.blank?
       render json: @user.to_json(except: :password_digest)
     else
+      p @user.errors
+      p @user
       render json: @user.errors, status: :bad_request
     end
   end
