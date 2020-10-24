@@ -53,7 +53,7 @@ class SuperusersController < APIBaseController
   end
 
   def default_user_fields
-    %i[name surname second_name phone_number description avatar birthday location education role email]
+    %i[name surname second_name phone_number description avatar birthday location education role email password]
   end
 
   def update_user_params
