@@ -20,7 +20,7 @@ class SuperusersController < APIBaseController
   def show_user
     user = User.find(params[:id])
     if user.errors.blank?
-      render json: user, status: :ok
+      render json: user.to_json(except: [:password_digest])
     else
       render status: :bad_request
     end
