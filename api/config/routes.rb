@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   post :superuser_token, to: 'superuser_token#create'
   resource :superuser do
     get 'show_user/:id', to: 'superusers#show_user', on: :member
+    put 'update_user/:id', to: 'superusers#update_user', on: :member
     get :index_users, on: :member
   end
 
