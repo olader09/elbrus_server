@@ -16,7 +16,7 @@ class EventsController < APIBaseController
     if @event.errors.blank?
       render json: @event.to_json(include: {
                                     users:{
-                                      only: %i[name surname second_name avatar]
+                                      only: %i[id name surname second_name avatar]
                                     }
                                   }
                                 )
