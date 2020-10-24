@@ -1,6 +1,6 @@
 class EventsController < APIBaseController
-  # authorize_resource except: %i[create]
-  # before_action :auth_user, except: %i[create]
+  authorize_resource except: %i[index show]
+  before_action :auth_user, except: %i[index show]
 
   def index
     events = Event.all
