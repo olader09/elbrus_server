@@ -8,7 +8,7 @@ class User < ApplicationRecord
   mount_uploader :avatar, UserAvatarUploader
   mount_base64_uploader :avatar, UserAvatarUploader
 
-  enumerize :role, in: %i[user], default: :user, predicates: true, scope: :shallow
+  enumerize :role, in: %i[user speaker], default: :user, predicates: true, scope: :shallow
 
   def to_token_payload
     {
