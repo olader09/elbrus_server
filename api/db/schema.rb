@@ -28,6 +28,13 @@ ActiveRecord::Schema.define(version: 20201024213229) do
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
+  create_table "events_users", id: false, force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "event_id"
+    t.index ["event_id"], name: "index_events_users_on_event_id"
+    t.index ["user_id"], name: "index_events_users_on_user_id"
+  end
+
   create_table "superusers", force: :cascade do |t|
     t.string "login", null: false
     t.string "password_digest"
@@ -52,13 +59,6 @@ ActiveRecord::Schema.define(version: 20201024213229) do
     t.string "birthday"
     t.string "location"
     t.string "education"
-  end
-
-  create_table "users_events", id: false, force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "event_id"
-    t.index ["event_id"], name: "index_users_events_on_event_id"
-    t.index ["user_id"], name: "index_users_events_on_user_id"
   end
 
   add_foreign_key "events", "users"
