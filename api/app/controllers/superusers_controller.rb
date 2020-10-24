@@ -38,7 +38,7 @@ class SuperusersController < APIBaseController
   def update_user
     user = User.find(params[:id])
     if user.errors.blank?
-      user.update(update_user_params)
+      user.update(required(:superuser))
       render json: user.to_json(except: [:password_digest])
     else
       render status: :bad_request
@@ -54,16 +54,6 @@ class SuperusersController < APIBaseController
 
   def default_superuser_fields
     %i[login]
-  end
-
-  def default_user_fields
-    %i[name surname second_name phone_number description avatar birthday location education]
-  end
-
-  def update_user_params
-    params.required(:user).permit(
-      *default_user_fields
-    )
   end
 
   def update_superuser_params
