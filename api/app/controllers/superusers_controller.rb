@@ -38,7 +38,7 @@ class SuperusersController < APIBaseController
   def update_user
     user = User.find(params[:id])
     if user.errors.blank?
-      user.update(params.required(:user)[:role])
+      user.update(params)
       render json: user.to_json(except: [:password_digest])
     else
       render status: :bad_request
