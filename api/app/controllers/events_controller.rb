@@ -36,7 +36,7 @@ class EventsController < APIBaseController
   end
 
   def create
-    @event = Event.create(create_user_params)
+    @event = Event.create(create_event_params)
     if @event.errors.blank?
       render json: @event
     else
@@ -48,7 +48,7 @@ class EventsController < APIBaseController
   protected
 
   def default_event_fields
-    %i[tag name description picture time date]
+    %i[tag name description picture time date speaker]
   end
 
   def update_event_params
