@@ -48,7 +48,7 @@ class EventsController < APIBaseController
   protected
 
   def default_event_fields
-    %i[tag name description picture time date speaker]
+    %i[tag name description picture time date user_id]
   end
 
   def update_event_params
