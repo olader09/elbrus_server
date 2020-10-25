@@ -27,6 +27,15 @@ class User < ApplicationRecord
     find(payload['sub']) if payload['sub'] && payload['class'] && payload['class'] == to_s
   end
 
+  def rand_achivments!
+    self.achivments['fin'] = rand(0..1000)
+    self.achivments['family'] = rand(0..1000)
+    self.achivments['lead'] = rand(0..1000)
+    self.achivments['projactiv'] = rand(0..1000)
+    self.achivments['networking'] = rand(0..1000)
+    self.achivments['proforient'] = rand(0..1000)
+  end
+
   def superuser?
     false
   end
