@@ -40,8 +40,6 @@ class EventsController < APIBaseController
     if @event.errors.blank?
       render json: @event
     else
-      p @event
-      p @event.errors
       render json: @event.errors, status: :bad_request
     end
   end
