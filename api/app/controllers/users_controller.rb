@@ -28,6 +28,9 @@ class UsersController < APIBaseController
   def join_to_event
     event = Event.find(params[:id])
     if event.errors.blank?
+      if event.users.include? @user
+        render status: 208
+      end
       event.users << @user
       render status: :ok
     else
