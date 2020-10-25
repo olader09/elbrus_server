@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201024213229) do
+ActiveRecord::Schema.define(version: 20201025001607) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 20201024213229) do
     t.string "birthday"
     t.string "location"
     t.string "education"
+    t.jsonb "achivments", default: {"fin"=>0, "lead"=>0, "family"=>0, "projactiv"=>0, "networking"=>0, "proforient"=>0}
   end
 
   add_foreign_key "events", "users"
