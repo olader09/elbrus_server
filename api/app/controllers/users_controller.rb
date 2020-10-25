@@ -31,10 +31,20 @@ class UsersController < APIBaseController
       if event.users.include? @user
         return render status: 208
       end
-      event.users << @user
+      event.users << @user unless event.status == 2
       render status: :ok
     else
       render json: event.errors, status: :bad_request
+    end
+  end
+
+  def close_event
+    if @user.id == @user.event.user_id
+      @user.event.update(status: 2)
+      @user.event.users.map! {|user| user.achivments[user.event.tag] + rand(1..10)}
+      render status: :ok
+    else
+      render status: :forbidden
     end
   end
 

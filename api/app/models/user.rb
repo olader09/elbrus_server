@@ -4,6 +4,7 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: { case_sensitive: true }
   has_secure_password
   has_and_belongs_to_many :events
+  has_one :event
 
   mount_uploader :avatar, UserAvatarUploader
   mount_base64_uploader :avatar, UserAvatarUploader
