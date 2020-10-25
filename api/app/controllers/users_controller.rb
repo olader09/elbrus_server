@@ -25,6 +25,16 @@ class UsersController < APIBaseController
     end
   end
 
+  def join_to_event
+    event = Event.find(params[:id])
+    if @event.errors.blank?
+      event.users << @user
+      render status: :ok
+    else
+      render json: @event.errors, status: :bad_request
+    end
+  end
+
 
   protected
 
