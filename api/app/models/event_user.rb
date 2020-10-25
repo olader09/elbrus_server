@@ -1,3 +1,3 @@
-class EventUser < ApplicationRecord
+class EventsUser < ApplicationRecord
   
 end
