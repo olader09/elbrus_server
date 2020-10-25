@@ -38,6 +38,8 @@ class EventsController < APIBaseController
   def create
     @event = Event.create(create_event_params)
     if @event.errors.blank?
+      p @event
+      p @event.errors
       render json: @event
     else
       render json: @event.errors, status: :bad_request
