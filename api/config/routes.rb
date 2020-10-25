@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   post :user_token, to: 'user_token#create'
   resource :user do
     put 'join_to_event/:id', to: 'users#join_to_event', on: :member
+    put :close_event, on: :member
   end
 
   post :superuser_token, to: 'superuser_token#create'
