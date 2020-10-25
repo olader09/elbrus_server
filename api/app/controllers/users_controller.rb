@@ -29,7 +29,7 @@ class UsersController < APIBaseController
     event = Event.find(params[:id])
     if event.errors.blank?
       if event.users.include? @user
-        render status: 208
+        return render status: 208
       end
       event.users << @user
       render status: :ok
