@@ -34,6 +34,7 @@ class User < ApplicationRecord
     self.achivments['projactiv'] = rand(0..1000)
     self.achivments['networking'] = rand(0..1000)
     self.achivments['proforient'] = rand(0..1000)
+    self.save
   end
 
   def superuser?
