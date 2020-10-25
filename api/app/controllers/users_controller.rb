@@ -31,7 +31,7 @@ class UsersController < APIBaseController
       if event.users.include? @user
         return render status: 208
       end
-      event.users << @user unless event.status == 2
+      event.users << @user
       render status: :ok
     else
       render json: event.errors, status: :bad_request
