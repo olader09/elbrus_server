@@ -44,8 +44,7 @@ class UsersController < APIBaseController
   def close_event
     if @user.id == @user.event.user_id
       @user.event.update(status: 2)
-      p @user.event.tag
-      @user.event.users.each {|user| p user.achivments[@user.event.tag] += rand(1..10); user.save}
+      @user.event.users.each {|user| user.achivments[@user.event.tag] += rand(1..10); user.save}
       render status: :ok
     else
       render status: :forbidden
